@@ -1,0 +1,13 @@
+<semantic_definition> ::= { <object_set> }
+<object_set> ::= <object> <object_set>
+<object_set> ::= <single_object>
+<single_object> ::= <object>
+<object> ::= <simple_object>
+<object> ::= <reference>
+<object> ::= <delimiter>
+<simple_object> ::= <string>
+<reference> ::= [ <clause> ]
+<clause> ::= <integer>
+<integer> ::= <nonterminal_number>
+<delimiter> ::= _
+<delimiter> ::= @

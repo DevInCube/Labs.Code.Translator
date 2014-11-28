@@ -1,0 +1,4 @@
+PROCEDURE proc3 ;
+BEGIN
+	
+END

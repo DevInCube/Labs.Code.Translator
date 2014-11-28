@@ -53,7 +53,53 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="CodeGeneratorNS\ACodeGenerator.cs" />
+    <Compile Include="CodeGeneratorNS\CodeGenerator.cs" />
+    <Compile Include="CodeGeneratorNS\GenerationResult.cs" />
+    <Compile Include="CodeGeneratorNS\Impl\MetaLexerGenerator.cs" />
+    <Compile Include="GrammarNS\Grammar.cs" />
+    <Compile Include="GrammarNS\LexGrammar.cs" />
+    <Compile Include="GrammarNS\SymbolAttributeTable.cs" />
+    <Compile Include="GrammarNS\SyntacticGrammar.cs" />
+    <Compile Include="GrammarNS\SyntaxResult.cs" />
+    <Compile Include="GrammarNS\Token.cs" />
+    <Compile Include="GrammarNS\Rule.cs" />
+    <Compile Include="LexerNS\ALexer.cs" />
+    <Compile Include="LexerNS\Impl\TerminalLexer.cs" />
+    <Compile Include="LexerNS\Impl\TerminalLexerResult.cs" />
+    <Compile Include="LexerNS\ILexer.cs" />
+    <Compile Include="LexerNS\ILexerResult.cs" />
+    <Compile Include="LexerNS\Impl\SignalLexer.cs" />
+    <Compile Include="LexerNS\LexerException.cs" />
+    <Compile Include="LexerNS\Impl\SignalLexerResult.cs" />
+    <Compile Include="LexerNS\Symbol.cs" />
+    <Compile Include="LexerNS\SymbolAttribute.cs" />
+    <Compile Include="Models\LangTranslator.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGeneratorNS\Impl\GrammarRulesGenerator.cs" />
+    <Compile Include="SyntaxParserNS\SyntaxTree.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ViewModels\SyntaxTreeVM.cs" />
+    <Compile Include="ViewModels\TreeItemVM.cs" />
+    <Compile Include="Views\CodeGeneratorWindow.xaml.cs">
+      <DependentUpon>CodeGeneratorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SyntaxTreeWindow.xaml.cs">
+      <DependentUpon>SyntaxTreeWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\CodeGeneratorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GrammarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -61,10 +107,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="SyntaxParserNS\LL1Analyzer.cs" />
+    <Compile Include="SyntaxParserNS\SyntaxTreeNode.cs" />
+    <Compile Include="ViewModels\AppVM.cs" />
+    <Compile Include="ViewModels\GrammarVM.cs" />
+    <Compile Include="ViewModels\ObservableObject.cs" />
+    <Compile Include="ViewModels\SimpleCommand.cs" />
+    <Compile Include="Views\GrammarWindow.xaml.cs">
+      <DependentUpon>GrammarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SyntaxTreeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -84,6 +143,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +155,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestProgram1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grammar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestProgram2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestProgram3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestGrammar1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grammar2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MetaSemanticGrammar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sema.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BNFGrammar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestGrammar2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lab_LexerGrammar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MetaLexGrammar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lab_SyntacticGrammat.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

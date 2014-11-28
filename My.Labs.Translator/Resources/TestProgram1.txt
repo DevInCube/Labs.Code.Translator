@@ -1,0 +1,8 @@
+PROCEDURE PROC1 ( X : INTEGER; Y : FLOAT; ) ;
+CONST 
+	PI100 = 314;
+	MINUS = -1;
+	N = 5;
+BEGIN
+	
+END;

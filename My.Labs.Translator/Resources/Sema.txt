@@ -1,0 +1,18 @@
+<signal-program> ::= <program>
+<program> ::= PROCEDURE <procedure-identifier> <parameters-list> ; <declarations> <block> ; {@[4][3][2]Buf:}
+
+<parameters-list> ::= ( <declarations-list> ) | <empty>										 {[1]}
+<declarations-list> ::= <declaration> <declarations-list> | <empty>                          {[2][1]}
+<declaration> ::= <variable-identifier> : <attribute> ;										 {[2][1]@Iden_Buf_POP}
+<attribute> ::= INTEGER																		 {Buf:='dd'}
+<attribute> ::= FLOAT																		 {Buf:='dq'}
+
+<declarations> ::= <constant-declarations>
+<constant-declarations> ::= CONST <constant-declarations-list> | <empty>
+<constant-declarations-list> ::= <constant-declaration> <constant-declarations-list> | <empty>
+<constant-declaration> ::= <constant-identifier> = <constant> ;
+<constant> ::= <unsigned-integer>
+<constant> ::= - <unsigned-integer>
+<constant-identifier> ::= <identifier>
+<variable-identifier> ::= <identifier>
+<procedure-identifier> ::= <identifier>

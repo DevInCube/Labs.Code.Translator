@@ -1,0 +1,4 @@
+PROCEDURE proc2();
+BEGIN
+	(* Nothing here *)
+END;

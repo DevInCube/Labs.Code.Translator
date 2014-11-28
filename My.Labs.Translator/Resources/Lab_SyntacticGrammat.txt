@@ -1,0 +1,22 @@
+signal-program				: program ;
+program						: 'PROCEDURE' procedure-identifier parameters-list ';' declarations block ';' ;
+block						: 'BEGIN' statements-list 'END' ;
+statements-list				: '' ;
+parameters-list				: '(' declarations-list ')' 
+							| '' ;
+declarations-list			: declaration declarations-list 
+							| '' ;
+declaration					: variable-identifier ':' attribute ;
+attribute					: 'INTEGER' 
+							| 'FLOAT' ;
+declarations				: constant-declarations ;
+constant-declarations		: 'CONST' constant-declarations-list 
+							| '' ;
+constant-declarations-list	: constant-declaration constant-declarations-list 
+							| '' ; 
+constant-declaration		: constant-identifier '=' constant ';' ;
+constant					: unsigned-integer 
+							| '-' unsigned-integer ;
+constant-identifier			: identifier ;
+variable-identifier			: identifier ;
+procedure-identifier		: identifier ;

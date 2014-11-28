@@ -1,0 +1,14 @@
+grammar : syntax ;					 
+syntax : rule rules-more ;			 
+rules-more : syntax 				 
+		   | '';					 
+rule : rule-name ':' alternation-expression ';'	;
+alternation-expression : expression expression-more;
+expression-more : '|' alternation-expression
+			    | '';
+rule-name : non-terminal;			 
+expression : token tokens-more ;	 
+tokens-more : expression		 
+		    | '' ;				 
+token : terminal			 
+	  | non-terminal ;

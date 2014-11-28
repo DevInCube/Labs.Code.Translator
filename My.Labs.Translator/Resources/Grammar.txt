@@ -1,0 +1,23 @@
+<signal-program> ::= <program>
+<program> ::= PROCEDURE <procedure-identifier> <parameters-list> ; <declarations> <block> ;
+<block> ::= BEGIN <statements-list> END
+<statements-list> ::= <empty>
+<parameters-list> ::= ( <declarations-list> ) | <empty>
+<declarations-list> ::= <declaration> <declarations-list> | <empty>
+<declaration> ::= <variable-identifier> : <attribute> ;
+<attribute> ::= INTEGER | FLOAT
+<declarations> ::= <constant-declarations>
+<constant-declarations> ::= CONST <constant-declarations-list> | <empty>
+<constant-declarations-list> ::= <constant-declaration> <constant-declarations-list> | <empty>
+<constant-declaration> ::= <constant-identifier> = <constant> ;
+<constant> ::= <unsigned-integer>
+<constant> ::= - <unsigned-integer>
+<constant-identifier> ::= <identifier>
+<variable-identifier> ::= <identifier>
+<procedure-identifier> ::= <identifier>
+<identifier> ::= <letter> <string>
+<string> ::= <letter> <string> | <digit> <string> | <empty>
+<unsigned-integer> ::= <digit> <digits-string>
+<digits-string> ::= <digit> <digits-string> | <empty>
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<letter> ::= A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
