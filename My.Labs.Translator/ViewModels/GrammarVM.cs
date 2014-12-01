@@ -125,11 +125,12 @@ namespace My.Labs.Translator.ViewModels
             */
         }
 
-        public void Init(LangTranslator grammar)
+        public void Init(LangTranslator translator)
         {
             //@todo
-            //LexGrammar = grammar.LexGrammar.Plain;
-            //SyntacticGrammar = grammar.SyntacticGrammar.Plain;
+            Grammar grammar = translator.Syntax;
+            LexGrammar = grammar.SyntacticGrammar.LexGrammar.Plain;
+            SyntacticGrammar = grammar.SyntacticGrammar.Plain;
         }
     }
 }

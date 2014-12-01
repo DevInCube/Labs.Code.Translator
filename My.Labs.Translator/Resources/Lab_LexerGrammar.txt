@@ -1,6 +1,6 @@
-whitespace	: " \n\r\v\t", 12 ;
-letter		: "ABCDEFGHIGKLMNOPQRSTUVWXYZ", LC ;
+whitespace	: " \n\r\v\t", 12;
+letter		: "ABCDEFGHIGKLMNOPQRSTUVWXYZ" ;
 digit		: "0123456789" ;
-delimiter	: "():;-" ;
+delimiter	: "():;-=" ;
 
 

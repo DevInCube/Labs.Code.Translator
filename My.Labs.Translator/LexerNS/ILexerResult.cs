@@ -10,6 +10,7 @@ namespace My.Labs.Translator.LexerNS
     {
 
         List<ComplexToken> Lexems { get; }
+        Dictionary<int, ComplexToken> Tokens { get; }
         
         void AddToken(ComplexToken token);
 

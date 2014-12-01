@@ -18,6 +18,11 @@ namespace My.Labs.Translator.LexerNS
             get { return lexems; }
         }
 
+        public Dictionary<int, ComplexToken> Tokens
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public TerminalLexerResult()
         {
             tokens = new Dictionary<string, ComplexToken>();

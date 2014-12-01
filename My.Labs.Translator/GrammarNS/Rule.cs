@@ -33,6 +33,12 @@ namespace My.Labs.Translator.GrammarNS
             return r;
         }
 
+        public static Rule Create(ComplexToken mt, params ComplexToken[] tokens)
+        {
+            Rule r = new Rule(mt, tokens);           
+            return r;
+        }
+
         public List<Rule> Split()
         {
             var children = new List<Rule>();

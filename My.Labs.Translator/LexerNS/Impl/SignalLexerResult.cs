@@ -29,6 +29,35 @@ namespace My.Labs.Translator.LexerNS
         {
             switch (t.Token)
             {
+                case ("keyword"):
+                    {
+                        for (int i = KEYWORD_START; i < CONSTANT_START; i++)
+                            if (!Tokens.ContainsKey(i))
+                            {
+                                Tokens.Add(i, t);
+                                t.Key = i;
+                                break;
+                            }
+                        break;
+                    }
+                case ("delimiter"):
+                    {
+                        int pos = (int)t.Lexem[0];
+                        Tokens[pos] = t;
+                        t.Key = pos;                       
+                        break;
+                    }
+                case ("identifier"):
+                    {
+                        for (int i = IDENTIFIER_START; true; i++)
+                            if (!Tokens.ContainsKey(i))
+                            {
+                                Tokens.Add(i, t);
+                                t.Key = i;
+                                break;
+                            }
+                        break;
+                    }
                 case ("unsigned-integer"):
                     {
                         for (int i = CONSTANT_START; i < IDENTIFIER_START; i++)
@@ -42,83 +71,14 @@ namespace My.Labs.Translator.LexerNS
                     }
                 default:
                     throw new NotImplementedException();
-            }
-            /*
-            if (t.Token == TokenType.NonTerminal)
-                throw new Exception("Adding NonTerminal token to Lexer Result");
-            else
-            {
-                if (t.Key != 0)
-                {
-                    if (Tokens.ContainsKey(t.Key)) throw new Exception("Such tokn key already exists");
-                    Tokens[t.Key] = t;
-                    return;
-                }
-                switch (t.Token)
-                {
-                    case (TokenType.Delimiter):
-                        {
-                            for (int i = (int)TokenType.Delimiter; i < (int)TokenType.MultiCharDelimiter; i++)
-                                if (!Tokens.ContainsKey(i))
-                                {
-                                    Tokens.Add(i, t);
-                                    t.Key = i;
-                                    break;
-                                }
-                            break;
-                        }
-                    case (TokenType.Keyword):
-                        {
-                            for (int i = (int)TokenType.Keyword; i < (int)TokenType.Constant; i++)
-                                if (!Tokens.ContainsKey(i))
-                                {
-                                    Tokens.Add(i, t);
-                                    t.Key = i;
-                                    break;
-                                }
-                            break;
-                        }
-                    case (TokenType.Constant):
-                        {
-                            for (int i = (int)TokenType.Constant; i < (int)TokenType.Identifier; i++)
-                                if (!Tokens.ContainsKey(i))
-                                {
-                                    Tokens.Add(i, t);
-                                    t.Key = i;
-                                    break;
-                                }
-                            break;
-                        }
-                    case (TokenType.Identifier):
-                        {
-                            for (int i = (int)TokenType.Identifier; true; i++)
-                                if (!Tokens.ContainsKey(i))
-                                {
-                                    Tokens.Add(i, t);
-                                    t.Key = i;
-                                    break;
-                                }
-                            break;
-                        }
-                }
-            }*/
+            }       
         }
 
         public ComplexToken GetDelimiter(char delimiter)
         {
-            for (int i = DELIMITER_START; i < MULTICHARDELIMITER_START; i++)
-                if (Tokens.ContainsKey(i) && Tokens[i].Lexem.Equals(delimiter.ToString()))
-                    return Tokens[i];
-            return null;
-        }
-
-        public ComplexToken GetKeyword(string keyword)
-        {
-            for (int i = KEYWORD_START; i < CONSTANT_START; i++)
-                if (Tokens.ContainsKey(i) && Tokens[i].Lexem.Equals(keyword))
-                    return Tokens[i];
-            return null;
-        }
+            int pos = (int)delimiter;
+            return Tokens.ContainsKey(pos) ? Tokens[pos] : null;           
+        }       
 
         public void AddLexem(ComplexToken token)
         {
@@ -141,9 +101,7 @@ namespace My.Labs.Translator.LexerNS
             List<ComplexToken> tokens = new List<ComplexToken>();
             for (int i = DELIMITER_START; i < MULTICHARDELIMITER_START; i++)
                 if (Tokens.ContainsKey(i))
-                    tokens.Add(Tokens[i]);
-                else
-                    return tokens;
+                    tokens.Add(Tokens[i]);               
             return tokens;
         }
 
@@ -182,7 +140,7 @@ namespace My.Labs.Translator.LexerNS
         }
 
         public bool HasKeyword(string p, out int index)
-        {            
+        {                        
             for (index = KEYWORD_START; index < CONSTANT_START; index++)
                 if (Tokens.ContainsKey(index))
                 {
@@ -221,7 +179,7 @@ namespace My.Labs.Translator.LexerNS
                     return val;
             }
             return null;
-        }
+        }    
 
     }
 }

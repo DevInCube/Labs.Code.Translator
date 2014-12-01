@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\App.xaml
-42050883885
+5-275554537
 
-421812563895
+45-1722578998
 12-1401562060
-Views\CodeGeneratorWindow.xaml;Views\GrammarWindow.xaml;Views\MainWindow.xaml;Views\SyntaxTreeWindow.xaml;
+Views\CodeGeneratorWindow.xaml;Views\GrammarWindow.xaml;Views\LexerResultWindow.xaml;Views\MainWindow.xaml;Views\SyntaxTreeWindow.xaml;
 
 False
 

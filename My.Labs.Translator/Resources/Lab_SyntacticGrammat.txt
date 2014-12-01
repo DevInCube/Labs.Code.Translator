@@ -6,7 +6,7 @@ parameters-list				: '(' declarations-list ')'
 							| '' ;
 declarations-list			: declaration declarations-list 
 							| '' ;
-declaration					: variable-identifier ':' attribute ;
+declaration					: variable-identifier ':' attribute ';' ;
 attribute					: 'INTEGER' 
 							| 'FLOAT' ;
 declarations				: constant-declarations ;

@@ -1,0 +1,44 @@
+﻿<Window x:Class="My.Labs.Translator.Views.LexerResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:My.Labs.Translator.ViewModels"        
+        Title="LexerResultWindow" Height="310" Width="507">
+    <Window.DataContext>
+        <vm:LexerResultVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Stretch"
+                      Background="CadetBlue" 
+                      ShowsPreview="False"
+                      Width="5"
+                      />
+        <Grid >
+            <GroupBox Header="Lexems">
+                <DataGrid ItemsSource="{Binding Lexems}"></DataGrid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="1" Margin="5,0,0,0">
+            <GroupBox Header="Tables">                
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ListBox ItemsSource="{Binding Tables}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Label Content="{Binding Key}" FontWeight="Bold" ></Label>
+                                        <DataGrid ItemsSource="{Binding Value}" HorizontalAlignment="Stretch" Width="Auto">                                    
+                                        </DataGrid>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>                    
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>

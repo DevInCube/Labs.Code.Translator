@@ -15,9 +15,6 @@ namespace My.Labs.Translator.Models
 
         public string Name { get; set; }
 
-        public LexGrammar LexGrammar { get; private set; }
-        public SyntacticGrammar SyntacticGrammar { get; private set; }
-
         public Grammar Syntax { get; private set; }
 
         public ALexer Lexer { get; private set; }

@@ -1,4 +1,5 @@
 ﻿using My.Labs.Translator.GrammarNS;
+using My.Labs.Translator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +40,11 @@ namespace My.Labs.Translator.LexerNS
         protected abstract void OnParse(ILexerResult result);
 
         public ILexerResult Parse(string programText, Grammar grammar)
-        {
-            if (string.IsNullOrEmpty(programText)) throw new LexerException("Program is empty");
-            if (grammar == null) throw new LexerException("Grammar not specified");
+        {               
+            if (string.IsNullOrEmpty(programText))
+                throw new CodeError(CodeErrorType.Lexical, "Program is empty", 0, 0); 
+            if (grammar == null) 
+                throw new Exception("Grammar not specified");
             ILexerResult result = InitParse(programText, grammar);            
             OnParse(result);
             return result;            
@@ -82,6 +85,8 @@ namespace My.Labs.Translator.LexerNS
 
         private SymbolAttribute Attr(char ch)
         {
+            if ((int)ch > grammar.AttributeTable.Table.Length)
+                return SymbolAttribute.Forbidden;
             return grammar.AttributeTable.Table[(int)ch];
         }  
     }

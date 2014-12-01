@@ -20,3 +20,5 @@ F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Deb
 F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Debug\Views\SyntaxTreeWindow.g.cs
 F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Debug\Views\CodeGeneratorWindow.baml
 F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Debug\Views\CodeGeneratorWindow.g.cs
+F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Debug\Views\LexerResultWindow.baml
+F:\Programming\MS Visual Studio\My\My.Labs.Translator\My.Labs.Translator\obj\Debug\Views\LexerResultWindow.g.cs

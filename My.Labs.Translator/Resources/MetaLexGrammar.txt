@@ -6,4 +6,4 @@ type-name	: non-terminal ;
 elements	: element elements-more ;
 elements-more	: ',' element
 				| '' ;
-element : terminal ;
+element : terminal;

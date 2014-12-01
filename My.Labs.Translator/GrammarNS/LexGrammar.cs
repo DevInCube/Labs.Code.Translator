@@ -12,6 +12,7 @@ namespace My.Labs.Translator.GrammarNS
     public class LexGrammar
     {
 
+        public string Plain { get; private set; }
         public SymbolAttributeTable Table { get; set; }
 
         public static LexGrammar Parse(string rules)
@@ -21,9 +22,11 @@ namespace My.Labs.Translator.GrammarNS
             var lexer = new TerminalLexer();
             var lexRes = lexer.Parse(rules, lexGram);
             var synRes = (new LL1Analyzer()).Analyze(lexRes.Lexems, lexGram);
+
             var linearTree = (new SyntaxTree()).BuildLinearTreeForm(synRes.SyntaxTree, lexGram);
             var codeGen = new MetaLexerGenerator();
             codeGen.Generate(linearTree);
+            lex.Plain = rules;
             lex.Table = codeGen.Table;
             return lex;
         }

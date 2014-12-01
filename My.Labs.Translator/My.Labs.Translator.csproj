@@ -54,7 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CodeGeneratorNS\ACodeGenerator.cs" />
-    <Compile Include="CodeGeneratorNS\CodeGenerator.cs" />
+    <Compile Include="CodeGeneratorNS\Impl\SignalCodeGenerator.cs" />
     <Compile Include="CodeGeneratorNS\GenerationResult.cs" />
     <Compile Include="CodeGeneratorNS\Impl\MetaLexerGenerator.cs" />
     <Compile Include="GrammarNS\Grammar.cs" />
@@ -70,10 +70,10 @@
     <Compile Include="LexerNS\ILexer.cs" />
     <Compile Include="LexerNS\ILexerResult.cs" />
     <Compile Include="LexerNS\Impl\SignalLexer.cs" />
-    <Compile Include="LexerNS\LexerException.cs" />
     <Compile Include="LexerNS\Impl\SignalLexerResult.cs" />
     <Compile Include="LexerNS\Symbol.cs" />
     <Compile Include="LexerNS\SymbolAttribute.cs" />
+    <Compile Include="Models\CodeError.cs" />
     <Compile Include="Models\LangTranslator.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -82,11 +82,16 @@
     </Compile>
     <Compile Include="CodeGeneratorNS\Impl\GrammarRulesGenerator.cs" />
     <Compile Include="SyntaxParserNS\SyntaxTree.cs" />
+    <Compile Include="ViewModels\LexerResultVM.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\SyntaxTreeVM.cs" />
     <Compile Include="ViewModels\TreeItemVM.cs" />
     <Compile Include="Views\CodeGeneratorWindow.xaml.cs">
       <DependentUpon>CodeGeneratorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Views\LexerResultWindow.xaml.cs">
+      <DependentUpon>LexerResultWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SyntaxTreeWindow.xaml.cs">
       <DependentUpon>SyntaxTreeWindow.xaml</DependentUpon>
@@ -96,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GrammarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LexerResultWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

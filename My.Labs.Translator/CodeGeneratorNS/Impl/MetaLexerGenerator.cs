@@ -111,21 +111,49 @@ namespace My.Labs.Translator.CodeGeneratorNS.Impl
                                             Table.Table[lt_index] = attrType;
                                         break;
                                     }
-                            }
-                            break;
-                        }
-                        var lexem = ct.Lexem;
-                        uint digit;
-                        bool isDigit = uint.TryParse(lexem, out digit);
-                        if (isDigit)
-                        {
-                            Table.Table[digit] = attrType;
+                            }                        
                         }
                         else
-                        {
+                        {                            
+                            var lexem = ct.Lexem;
+                            /* //@todo
+                            uint digit;
+                            bool isDigit = uint.TryParse(lexem, out digit);
+                            if (isDigit)
+                            {
+                                Table.Table[digit] = attrType;
+                            }
+                            else
+                            {
+                                
+                            }*/
+                            int i = 0;
                             foreach (var ch in lexem)
-                                Table.Table[(uint)ch] = attrType;
+                            {
+                                if (ch.Equals('\\'))
+                                {
+                                    if (i == lexem.Length - 1) throw new Exception("open escape left");
+                                    var next = lexem[i + 1];
+                                    char escapedChar;
+                                    switch(next){
+                                        case ('n'): escapedChar = '\n'; break;
+                                        case ('r'): escapedChar = '\r'; break;
+                                        case ('t'): escapedChar = '\t'; break;
+                                        case ('v'): escapedChar = '\v'; break;
+                                        case ('\''): escapedChar = '\''; break;
+                                        case ('\"'): escapedChar = '\"'; break;
+                                        default: throw new Exception("unrecognized escaped char : '" + next + "'");
+                                    }
+                                    Table.Table[(uint)escapedChar] = attrType;
+                                }
+                                else
+                                {
+                                    Table.Table[(uint)ch] = attrType;
+                                }
+                                i++;
+                            }
                         }
+                        
                         break;
                     }
                 default: throw new Exception("unknown rule");                

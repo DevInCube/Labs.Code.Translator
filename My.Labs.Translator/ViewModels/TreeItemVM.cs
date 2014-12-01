@@ -16,8 +16,8 @@ namespace My.Labs.Translator.ViewModels
 
         public string Lexem { get { return node.ComplexToken.Lexem; } }
         public string Token { get { return node.ComplexToken.Token; } }
-        public string Key { get { return node.ComplexToken.Key.ToString(); } }
-        public string Rule { get { return node.RuleIndex.ToString(); } }
+        public string Key { get { return (node.ComplexToken.Key != 0) ? node.ComplexToken.Key.ToString() : ""; } }
+        public string Rule { get { return (node.RuleIndex != 0) ? node.RuleIndex.ToString() : ""; } }
 
         public bool IsExpanded { 
             get { return _IsExpanded; }

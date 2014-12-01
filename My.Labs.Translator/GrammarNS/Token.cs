@@ -14,21 +14,11 @@ namespace My.Labs.Translator.GrammarNS
         public static readonly ComplexToken Definition = new ComplexToken("::=", "delimiter");
 
         public int Key { get; set; }
-        public string Lexem { get; private set; } // this is Lexem
+        public string Lexem { get; set; }
         public string Token { get; set; }
         public int CodeLine { get; set; }
         public int CodePosition { get; set; }
-
-        /*
-        public bool IsTerminal
-        {
-            get
-            {
-                var noBrackets = !(Lexem.First().Equals('<') && Lexem.Last().Equals('>'));
-                var isEmptyToken = this.Lexem.Equals(Empty.Lexem);
-                return noBrackets || isEmptyToken;
-            }
-        }*/
+     
 
         public ComplexToken(
             string val, 
@@ -43,20 +33,17 @@ namespace My.Labs.Translator.GrammarNS
         }
      
         public override string ToString()
-        {
-            string isToken = "";
-            if (!string.IsNullOrWhiteSpace(Token))
-                isToken = string.Format(" is {0}", Token);
-            return string.Format("\"{0}\"{1}", Lexem, isToken);
+        {            
+            return string.Format("\"{0}\" ({1})", Lexem, Token);
         }
         
         public override bool Equals(object obj)
         {
             if (this == obj) return true;
             if (!(obj is ComplexToken)) return false;
-            ComplexToken other = obj as ComplexToken;
+            ComplexToken other = obj as ComplexToken;           
             return this.Lexem.Equals(other.Lexem);
-        }
+        }        
 
         public override int GetHashCode()
         {

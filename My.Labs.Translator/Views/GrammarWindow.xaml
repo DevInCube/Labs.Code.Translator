@@ -18,7 +18,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="42*"/>
-                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="0"/>
                 </Grid.ColumnDefinitions>
                 <GridSplitter Grid.Column="1"
                       HorizontalAlignment="Left"

@@ -77,7 +77,14 @@ namespace My.Labs.Translator.CodeGeneratorNS
                 case (13):
                 case (14):
                     {
-                        tokens.Add(currentNode.Children.First().ComplexToken);
+                        var token = currentNode.Children.First().ComplexToken;
+                        var lexem = token.Lexem;
+                        bool inQuotes = lexem.Length > 1
+                                        && lexem.First() == lexem.Last()
+                                        && (lexem.First().Equals('\'') || lexem.First().Equals('\"'));
+                        if(inQuotes)
+                            token.Lexem = lexem.Substring(1, lexem.Length - 2);
+                        tokens.Add(token);
                         break;
                     }
                 default: throw new Exception("No rule with such index : " + index);

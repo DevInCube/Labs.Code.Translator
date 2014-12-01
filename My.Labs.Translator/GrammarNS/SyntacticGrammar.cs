@@ -13,6 +13,8 @@ namespace My.Labs.Translator.GrammarNS
     public class SyntacticGrammar
     {
 
+        public string Plain { get; private set; }
+        public LexGrammar LexGrammar { get; private set; }
         public SymbolAttributeTable Table { get; private set; }
         public List<Rule> Rules { get; private set; }
 
@@ -25,7 +27,9 @@ namespace My.Labs.Translator.GrammarNS
             var linearTree = (new SyntaxTree()).BuildLinearTreeForm(synRes.SyntaxTree, grammar);
             var codeGen = new GrammarRulesGenerator();
             codeGen.Generate(linearTree);
-            synGram.Rules = codeGen.Rules;
+            synGram.Plain = syntacticRules;
+            synGram.LexGrammar = lexGram;
+            synGram.Rules = codeGen.Rules;            
             synGram.Table = lexGram.Table;
             return synGram;
         }

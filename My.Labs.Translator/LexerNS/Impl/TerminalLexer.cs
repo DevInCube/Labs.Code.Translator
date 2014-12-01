@@ -1,4 +1,5 @@
 ﻿using My.Labs.Translator.GrammarNS;
+using My.Labs.Translator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace My.Labs.Translator.LexerNS
                 switch (sym.Attribute)
                 {
                     case (SymbolAttribute.Forbidden):
-                        throw new LexerException(string.Format("Forbidden symbol '{0}' at line {1} position {2}",
-                            sym.Value, sym.CodeLine, sym.CodePosition));
+                        throw new CodeError(CodeErrorType.Lexical, string.Format("Forbidden symbol '{0}'",
+                            sym.Value), sym.CodeLine, sym.CodePosition);
                     case (SymbolAttribute.Whitespace):
                         {
                             do
@@ -68,7 +69,7 @@ namespace My.Labs.Translator.LexerNS
                             {
                                 Symbol startSym = sym;
                                 sym = ScanString(sym);
-                                string value = Pop();
+                                string value = Pop();                                
                                 var token = result.GetToken(value);
                                 if (token == null)
                                     token = result.AddToken(value, "terminal", startSym.CodeLine, startSym.CodePosition);
