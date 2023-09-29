@@ -1,4 +1,5 @@
-﻿using My.Labs.Translator.GrammarNS;
+﻿using My.Labs.Translator.Commands;
+using My.Labs.Translator.GrammarNS;
 using My.Labs.Translator.Models;
 using My.Labs.Translator.Properties;
 using My.Labs.Translator.SyntaxParserNS;

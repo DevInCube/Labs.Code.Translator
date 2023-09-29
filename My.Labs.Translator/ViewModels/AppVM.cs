@@ -1,5 +1,6 @@
 ﻿using My.Labs.Translator.CodeGeneratorNS;
 using My.Labs.Translator.CodeGeneratorNS.Impl;
+using My.Labs.Translator.Commands;
 using My.Labs.Translator.GrammarNS;
 using My.Labs.Translator.LexerNS;
 using My.Labs.Translator.Models;
@@ -212,12 +213,5 @@ namespace My.Labs.Translator.ViewModels
             vm.Init(synRes.SyntaxTree);
             win.Show();
         }                  
-    }
-
-    public enum ProcessType
-    {
-        Full,
-        Lexical,
-        Syntactic
     }
 }

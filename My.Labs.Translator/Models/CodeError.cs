@@ -22,11 +22,4 @@ namespace My.Labs.Translator.Models
             this.Column = col;
         }
     }
-
-    public enum CodeErrorType
-    {
-        Lexical,
-        Syntax,
-        Semantic
-    }
 }

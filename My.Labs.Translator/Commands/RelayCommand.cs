@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace My.Labs.Translator.ViewModels
+namespace My.Labs.Translator.Commands
 {
     public class RelayCommand : ICommand
     {
@@ -14,7 +14,7 @@ namespace My.Labs.Translator.ViewModels
 
         public RelayCommand(Action<object> a)
         {
-            this.action = a;
+            action = a;
         }
 
         public bool CanExecute(object parameter)
@@ -23,7 +23,7 @@ namespace My.Labs.Translator.ViewModels
         }
 
         public event EventHandler CanExecuteChanged;
-        
+
 
         public void Execute(object parameter)
         {

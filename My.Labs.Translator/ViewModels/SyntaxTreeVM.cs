@@ -1,4 +1,5 @@
-﻿using My.Labs.Translator.SyntaxParserNS;
+﻿using My.Labs.Translator.Commands;
+using My.Labs.Translator.SyntaxParserNS;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
