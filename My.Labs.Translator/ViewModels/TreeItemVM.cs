@@ -21,7 +21,7 @@ namespace My.Labs.Translator.ViewModels
 
         public bool IsExpanded { 
             get { return _IsExpanded; }
-            set { _IsExpanded = value; OnPropertyChanged("IsExpanded"); }
+            set { _IsExpanded = value; OnPropertyChanged(); }
         }
 
         public TreeItemVM(SyntaxParserNS.SyntaxTreeNode node)

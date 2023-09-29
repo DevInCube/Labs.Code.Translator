@@ -34,8 +34,8 @@ namespace My.Labs.Translator.ViewModels
             set
             {
                 lexRes = value;
-                OnPropertyChanged("LexerResult");
-                OnPropertyChanged("HasLexerResult");
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HasLexerResult));
 
             }
         }
@@ -46,8 +46,8 @@ namespace My.Labs.Translator.ViewModels
             set
             {
                 synRes = value;
-                OnPropertyChanged("SyntaxResult");
-                OnPropertyChanged("HasSyntaxResult");
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HasSyntaxResult));
 
             }
         }
@@ -56,14 +56,14 @@ namespace My.Labs.Translator.ViewModels
         public LangTranslator SelectedGrammar
         {
             get { return _SelectedGrammar; }
-            set { _SelectedGrammar = value; OnPropertyChanged("SelectedGrammar"); }
+            set { _SelectedGrammar = value; OnPropertyChanged(); }
         }
 
         public ObservableCollection<ProcessType> ProcessTypes { get; private set; }
         public ProcessType SelectedProcessType
         {
             get { return _SelectedProcessType; }
-            set { _SelectedProcessType = value; OnPropertyChanged("SelectedProcessType"); }
+            set { _SelectedProcessType = value; OnPropertyChanged(); }
         }
 
         public ICommand EditGrammar { get; private set; }
@@ -76,7 +76,7 @@ namespace My.Labs.Translator.ViewModels
         public string Input
         {
             get { return _input; }
-            set { _input = value; OnPropertyChanged("Input"); }
+            set { _input = value; OnPropertyChanged(); }
         }
 
         public bool HasOutput { get { return _output != null; } }
@@ -87,8 +87,8 @@ namespace My.Labs.Translator.ViewModels
             set
             {
                 _output = value;
-                OnPropertyChanged("Output");
-                OnPropertyChanged("HasOutput");
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HasOutput));
             }
         }
 
@@ -131,7 +131,7 @@ namespace My.Labs.Translator.ViewModels
 
         void AppVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName.Equals("Input"))
+            if (e.PropertyName.Equals(nameof(Input)))
             {
                 ProcessAction();
             }
@@ -171,7 +171,7 @@ namespace My.Labs.Translator.ViewModels
         void ProcessAction()
         {            
             Errors.Clear();
-            OnPropertyChanged("HasErrors");
+            OnPropertyChanged(nameof(HasErrors));
             LexerResult = null;
             SyntaxResult = null;
             Output = null;
@@ -193,7 +193,7 @@ namespace My.Labs.Translator.ViewModels
             catch (CodeError ex)
             {               
                 Errors.Add(ex);
-                OnPropertyChanged("HasErrors");
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 

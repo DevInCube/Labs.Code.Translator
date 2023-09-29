@@ -23,22 +23,22 @@ namespace My.Labs.Translator.ViewModels
         public string LexGrammar
         {
             get { return _LexGrammar; }
-            set { _LexGrammar = value; OnPropertyChanged("LexGrammar"); }
+            set { _LexGrammar = value; OnPropertyChanged(); }
         }
         public string SyntacticGrammar
         {
             get { return _SyntacticGrammar; }
-            set { _SyntacticGrammar = value; OnPropertyChanged("SyntacticGrammar"); }
+            set { _SyntacticGrammar = value; OnPropertyChanged(); }
         }
         public string PlainGrammar
         {
             get { return _PlainGrammar; }
-            set { _PlainGrammar = value; OnPropertyChanged("PlainGrammar"); }
+            set { _PlainGrammar = value; OnPropertyChanged(); }
         }
         public string Error
         {
             get { return _Error; }
-            set { _Error = value; OnPropertyChanged("Error"); }
+            set { _Error = value; OnPropertyChanged(); }
         }
 
         public Grammar Grammar { get; private set; }
