@@ -1,170 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7793759D-395F-456F-979B-1698E48FBD9E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>My.Labs.Translator</RootNamespace>
-    <AssemblyName>My.Labs.Translator</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>net48</TargetFramework>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
+    <AssemblyTitle>My.Labs.Translator</AssemblyTitle>
+    <Product>My.Labs.Translator</Product>
+    <Copyright>Copyright ©  2014</Copyright>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="CodeGeneratorNS\ACodeGenerator.cs" />
-    <Compile Include="CodeGeneratorNS\Impl\SignalCodeGenerator.cs" />
-    <Compile Include="CodeGeneratorNS\GenerationResult.cs" />
-    <Compile Include="CodeGeneratorNS\Impl\MetaLexerGenerator.cs" />
-    <Compile Include="GrammarNS\Grammar.cs" />
-    <Compile Include="GrammarNS\LexGrammar.cs" />
-    <Compile Include="GrammarNS\SymbolAttributeTable.cs" />
-    <Compile Include="GrammarNS\SyntacticGrammar.cs" />
-    <Compile Include="GrammarNS\SyntaxResult.cs" />
-    <Compile Include="GrammarNS\Token.cs" />
-    <Compile Include="GrammarNS\Rule.cs" />
-    <Compile Include="LexerNS\ALexer.cs" />
-    <Compile Include="LexerNS\Impl\TerminalLexer.cs" />
-    <Compile Include="LexerNS\Impl\TerminalLexerResult.cs" />
-    <Compile Include="LexerNS\ILexer.cs" />
-    <Compile Include="LexerNS\ILexerResult.cs" />
-    <Compile Include="LexerNS\Impl\SignalLexer.cs" />
-    <Compile Include="LexerNS\Impl\SignalLexerResult.cs" />
-    <Compile Include="LexerNS\Symbol.cs" />
-    <Compile Include="LexerNS\SymbolAttribute.cs" />
-    <Compile Include="Models\CodeError.cs" />
-    <Compile Include="Models\LangTranslator.cs" />
-    <Compile Include="Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="CodeGeneratorNS\Impl\GrammarRulesGenerator.cs" />
-    <Compile Include="SyntaxParserNS\SyntaxTree.cs" />
-    <Compile Include="ViewModels\LexerResultVM.cs" />
-    <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\SyntaxTreeVM.cs" />
-    <Compile Include="ViewModels\TreeItemVM.cs" />
-    <Compile Include="Views\CodeGeneratorWindow.xaml.cs">
-      <DependentUpon>CodeGeneratorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
-    <Compile Include="Views\LexerResultWindow.xaml.cs">
-      <DependentUpon>LexerResultWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SyntaxTreeWindow.xaml.cs">
-      <DependentUpon>SyntaxTreeWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Views\CodeGeneratorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GrammarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LexerResultWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SyntaxParserNS\LL1Analyzer.cs" />
-    <Compile Include="SyntaxParserNS\SyntaxTreeNode.cs" />
-    <Compile Include="ViewModels\AppVM.cs" />
-    <Compile Include="ViewModels\GrammarVM.cs" />
-    <Compile Include="ViewModels\ObservableObject.cs" />
-    <Compile Include="ViewModels\SimpleCommand.cs" />
-    <Compile Include="Views\GrammarWindow.xaml.cs">
-      <DependentUpon>GrammarWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\SyntaxTreeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TestProgram1.txt" />
@@ -205,12 +62,4 @@
   <ItemGroup>
     <None Include="Resources\Lab_SyntacticGrammat.txt" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
